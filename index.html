@@ -10,8 +10,18 @@
 </head>
 <body>
 
+ <!-- Hidden audio file -->
+<audio id="bgMusic" src="youandme.mp3" loop></audio>
+
+<!-- Heart-shaped play/pause button -->
+<br>
+<br>
+<br>
+<div id="musicBtn" class="heart-btn"></div>
+<br>
+
   <!-- Hero -->
-  <section class="hero fade-in">
+  <section class="hero fade-in parallax">
     <h1>Hi Big Bear ❤️</h1>
     <p>I made this just for you.</p>
   </section>
@@ -20,46 +30,68 @@
   <section class="section fade-in">
     <h2>Why I Love You</h2>
     <div class="cards">
-      <div class="card">You make me feel safe.</div>
-      <div class="card">You show me what it's like to actually be loved.</div>
-      <div class="card">You make me look forward to every day.</div>
+      <div class="card hover-effect">You make me feel safe.</div>
+      <div class="card hover-effect">You show me what it's like to actually be loved.</div>
+      <div class="card hover-effect">You make me look forward to every day.</div>
     </div>
   </section>
 
   <!-- Timeline -->
-  <section class="section alt fade-in">
+  <section class="section alt fade-in parallax">
     <h2>Our Story</h2>
     <ul class="timeline">
-      <li><span>✨</span> Our first date</li>
-      <li><span>❤️</span> Our first kiss</li>
-      <li><span>🥹</span> My favorite memory</li>
-      <li><span>💌</span> Still choosing you</li>
+      <li><span>✨🎄</span> Our first date <span>🎄✨</span></li>
+      <li><span>❤️</span> Our first kiss <span>❤️</span></li>
+      <li><span>🥹</span> My favorite memory <span>🥹</span></li>
+      <li><span>💌</span> Forever choosing you <span>💌</span></li>
     </ul>
   </section>
 
-  <!-- Open When -->
+  <!-- Open for a surprise -->
   <section class="section fade-in">
-    <h2>Open When…</h2>
-    <div class="cards">
-      <div class="card">You miss me</div>
-      <div class="card">You're stressed</div>
-      <div class="card">You need a reminder</div>
+    <h2>Open for a Surprise!</h2>
+    <br>
+    <div class="heart-btn" onclick="toggleSurprise()"></div>
+    <div class="surprise" id="surpriseContent">
+      💖 Surprise! 💖 <br>
+      Here's a special message: I love you!<br>
+      <img src="images/christmas_color.jpeg" alt="Cute couple" class="memory hover-effect" width="300">
     </div>
   </section>
+
+  <!-- Open When -->
+<section class="section fade-in">
+  <h2>Open When…</h2>
+  <div class="cards">
+    <div class="card open-when-card hover-effect" data-index="0">
+      You miss me
+      <div class="open-when-content"></div>
+    </div>
+    <div class="card open-when-card hover-effect" data-index="1">
+      You're stressed
+      <div class="open-when-content"></div>
+    </div>
+    <div class="card open-when-card hover-effect" data-index="2">
+      You need a reminder
+      <div class="open-when-content"></div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Memory Gallery -->
   <section class="section alt fade-in">
     <h2>Little Memories</h2>
     <div class="cards">
-      <div class="card memory">
+      <div class="card memory hover-effect">
         <img src="images/mason_heidi_me.jpeg" alt="Memory 1">
         <p>A forever memory</p>
       </div>
-      <div class="card memory">
+      <div class="card memory hover-effect">
         <img src="images/couch.jpeg" alt="Memory 2">
         <p>The perfect night</p>
       </div>
-      <div class="card memory">
+      <div class="card memory hover-effect">
         <img src="images/christmas_bw.jpeg" alt="Memory 1">
         <p>My favorite time with you</p>
       </div>
