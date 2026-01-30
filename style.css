@@ -1,3 +1,10 @@
+:root {
+  --pink: #ffc0cb;
+  --red: #ff4d6d;
+  --pastel: #ffe4e1;
+  --pink: #e95186;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -15,6 +22,7 @@ body {
   padding: 80px 20px;
   text-align: center;
   background: linear-gradient(to bottom, #ffd6e8, #fff7f9);
+  color: #ff4d6d;
 }
 
 .hero h1 {
@@ -56,6 +64,12 @@ h2 {
   border-radius: 16px;
   max-width: 260px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card.hover-effect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--gold);
 }
 
 /* Memory cards */
@@ -95,12 +109,62 @@ footer {
   transform: translateY(0);
 }
 
+/* Parallax sections */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Heart-shaped button */
+.heart-btn {
+  width: 100px;
+  height: 90px;
+  background: var(--red);
+  position: relative;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  margin: 30px auto;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.heart-btn::before,
+.heart-btn::after {
+  content: "";
+  width: 100px;
+  height: 90px;
+  background: var(--red);
+  border-radius: 50%;
+  position: absolute;
+}
+.heart-btn::before {
+  top: -50px;
+  left: 0;
+}
+.heart-btn::after {
+  left: 50px;
+  top: 0;
+}
+.heart-btn:hover {
+  transform: rotate(-45deg) scale(1.1);
+  box-shadow: 0 0 15px var(--gold);
+}
+
+/* Surprise content */
+.surprise {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: var(--red);
+}
+
 /* Floating hearts */
 .floating-heart {
   position: fixed;
   bottom: -20px;
   font-size: 20px;
-  color: #ff5c8d;
+  color: var(--red);
   animation: floatUp linear forwards;
   pointer-events: none;
   z-index: 999;
@@ -130,3 +194,20 @@ footer {
     transform: translate(-50%, -80%) scale(1.6);
   }
 }
+/* Open When hidden content */
+.open-when-content {
+  opacity: 0;
+  margin-top: 15px;
+  transition: opacity 0.5s ease;
+  text-align: center;
+}
+@keyframes pulse {
+  0% { transform: rotate(-45deg) scale(1); }
+  50% { transform: rotate(-45deg) scale(1.15); }
+  100% { transform: rotate(-45deg) scale(1); }
+}
+
+#musicBtn.playing {
+  animation: pulse 1s infinite;
+}
+
