@@ -201,6 +201,16 @@ footer {
   transition: opacity 0.5s ease;
   text-align: center;
 }
+/* Image sizing */
+.open-when-content img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px; 
+  object-fit: cover;
+  display: block;
+  margin: 10px auto;
+}
 @keyframes pulse {
   0% { transform: rotate(-45deg) scale(1); }
   50% { transform: rotate(-45deg) scale(1.15); }
@@ -210,4 +220,3 @@ footer {
 #musicBtn.playing {
   animation: pulse 1s infinite;
 }
-

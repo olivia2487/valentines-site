@@ -69,7 +69,8 @@ function toggleSurprise() {
 const openWhenMessages = [
   {
     message: "💌 I’m thinking of you right now 😘",
-    image: "images/mason_heidi_me.jpeg"
+    
+    image: "images/mason_heidi_me.jpeg",
   },
   {
     message: "😌 Take a deep breath… everything will be okay 💛",
@@ -124,3 +125,4 @@ musicBtn.addEventListener("click", () => {
     musicBtn.classList.add("playing");
   }
 });
+
