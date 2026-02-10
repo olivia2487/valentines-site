@@ -81,7 +81,7 @@ const openWhenMessages = [
   },
   {
     message: "😌 Take a deep breath… everything will be okay 💛",
-    image: "images/couch.jpeg"
+    image: "images/bluesweater.jpeg"
   },
   {
     message: "❤️ Remember: You’re my favorite person, my big silly bear!",
