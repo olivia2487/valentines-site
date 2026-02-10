@@ -15,8 +15,6 @@ body {
   background: #fff7f9;
   color: #333;
   overflow-x: hidden;
-  -webkit-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
 }
 
 /* Hero */
@@ -71,6 +69,7 @@ h2 {
 
 .card.hover-effect:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 15px var(--gold);
 }
 
 /* Memory cards */
@@ -110,7 +109,7 @@ footer {
   transform: translateY(0);
 }
 
-/* Parallax */
+/* Parallax sections */
 .parallax {
   background-attachment: fixed;
   background-position: center;
@@ -118,7 +117,7 @@ footer {
   background-size: cover;
 }
 
-/* HEART BUTTON (MOBILE SAFE) */
+/* Heart-shaped button */
 .heart-btn {
   width: 100px;
   height: 90px;
@@ -127,12 +126,8 @@ footer {
   transform: rotate(-45deg);
   cursor: pointer;
   margin: 30px auto;
-  transition: box-shadow 0.3s, transform 0.2s;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  backface-visibility: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .heart-btn::before,
 .heart-btn::after {
   content: "";
@@ -142,32 +137,19 @@ footer {
   border-radius: 50%;
   position: absolute;
 }
-
 .heart-btn::before {
   top: -50px;
   left: 0;
 }
-
 .heart-btn::after {
   left: 50px;
   top: 0;
 }
-
-/* Desktop hover only */
-@media (hover: hover) {
-  .heart-btn:hover {
-    transform: rotate(-45deg) scale(1.1);
-    box-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
-  }
+.heart-btn:hover {
+  transform: rotate(-45deg) scale(1.1);
+  box-shadow: 0 0 15px var(--gold);
 }
-
-/* Mobile tap feedback */
-.heart-btn:active {
-  transform: rotate(-45deg) scale(0.95);
-}
-
-/* Heart text */
-.heart-label {
+.heart-text {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -178,19 +160,8 @@ footer {
   letter-spacing: 1px;
   pointer-events: none;
   text-transform: uppercase;
-  backface-visibility: hidden;
 }
 
-/* Pulse while playing */
-@keyframes pulse {
-  0% { transform: rotate(-45deg) scale(1); }
-  50% { transform: rotate(-45deg) scale(1.15); }
-  100% { transform: rotate(-45deg) scale(1); }
-}
-
-#musicBtn.playing {
-  animation: pulse 1s infinite;
-}
 
 /* Surprise content */
 .surprise {
@@ -199,9 +170,6 @@ footer {
   margin-top: 20px;
   font-size: 1.5rem;
   color: var(--red);
-}
-.surprise.show {
-  display: block;
 }
 
 /* Floating hearts */
@@ -216,11 +184,13 @@ footer {
 }
 
 @keyframes floatUp {
-  from { transform: translateY(0); }
-  to { transform: translateY(-100vh); opacity: 0; }
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
 }
 
-/* Cursor hearts */
+/* Cursor + touch hearts */
 .cursor-heart {
   position: absolute;
   font-size: 14px;
@@ -237,26 +207,34 @@ footer {
     transform: translate(-50%, -80%) scale(1.6);
   }
 }
-
-/* Open When */
+/* Open When hidden content */
 .open-when-content {
   opacity: 0;
   margin-top: 15px;
   transition: opacity 0.5s ease;
   text-align: center;
 }
-
+/* Image sizing */
 .open-when-content img {
   width: 100%;
   max-width: 300px;
-  border-radius: 12px;
+  height: auto;
+  border-radius: 12px; 
+  object-fit: cover;
   display: block;
   margin: 10px auto;
 }
+@keyframes pulse {
+  0% { transform: rotate(-45deg) scale(1); }
+  50% { transform: rotate(-45deg) scale(1.15); }
+  100% { transform: rotate(-45deg) scale(1); }
+}
 
-/* Cursor heart display */
+#musicBtn.playing {
+  animation: pulse 1s infinite;
+}
 body {
-  cursor: none;
+  cursor: none; /* hide default cursor */
 }
 
 .heart-cursor {
@@ -264,15 +242,38 @@ body {
   font-size: 24px;
   pointer-events: none;
   transform: translate(-50%, -50%);
+  transition: transform 0.08s ease;
   z-index: 9999;
-}
 
+  text-shadow:
+    0 0 6px rgba(255, 77, 109, 0.9),
+    0 0 12px rgba(255, 182, 193, 0.8),
+    0 0 18px rgba(255, 105, 180, 0.6);
+}
 @media (hover: none) and (pointer: coarse) {
-  body { cursor: auto; }
-  .heart-cursor { display: none; }
+  body {
+    cursor: auto;
+  }
+
+  .heart-cursor {
+    display: none;
+  }
 }
 
-/* Music hint */
+@media (max-width: 600px) {
+  .heart-btn {
+    width: 120px;
+    height: 110px;
+  }
+
+  .heart-text {
+    font-size: 16px;
+  }
+
+  .card {
+    max-width: 90%;
+  }
+}
 .music-wrapper {
   display: flex;
   flex-direction: column;
@@ -284,22 +285,31 @@ body {
   margin-top: 10px;
   font-size: 0.95rem;
   color: #d45a7c;
+  font-family: 'Inter', sans-serif;
   animation: pulseText 2s infinite;
+  text-align: center;
 }
 
+/* Soft pulsing hint */
 @keyframes pulseText {
   0% { opacity: 0.5; }
   50% { opacity: 1; }
   100% { opacity: 0.5; }
 }
-
-/* Mobile layout */
+/* Mobile optimization */
 @media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 
   .cards {
     flex-direction: column;
+    gap: 16px;
   }
 
   .card {
@@ -307,7 +317,12 @@ body {
     margin: 0 auto;
   }
 
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
   .heart-btn {
-    transform: rotate(-45deg) scale(1.1);
+    transform: scale(1.1);
   }
 }
