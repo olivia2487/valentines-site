@@ -127,6 +127,8 @@ footer {
   cursor: pointer;
   margin: 30px auto;
   transition: transform 0.3s, box-shadow 0.3s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .heart-btn::before,
 .heart-btn::after {
@@ -187,6 +189,9 @@ footer {
   to {
     transform: translateY(-100vh);
     opacity: 0;
+  }
+  from {
+    transform: translateY(0);
   }
 }
 
@@ -325,4 +330,21 @@ body {
   .heart-btn {
     transform: scale(1.1);
   }
+}
+/* Fix heart rotation on mobile */
+.floating-heart,
+.cursor-heart,
+.heart-btn,
+.heart-cursor {
+  transform: translate(-50%, -50%) rotate(0deg) !important;
+  -webkit-transform: translate(-50%, -50%) rotate(0deg) !important;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+}
+body {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
