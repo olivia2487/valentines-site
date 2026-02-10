@@ -144,7 +144,11 @@ footer {
   left: 50px;
   top: 0;
 }
-
+@keyframes pulse {
+  0% { transform: rotate(-45deg) scale(1); }
+  50% { transform: rotate(-45deg) scale(1.15); }
+  100% { transform: rotate(-45deg) scale(1); }
+}
 
 /* Surprise content */
 .surprise {
@@ -207,16 +211,12 @@ footer {
   display: block;
   margin: 10px auto;
 }
-/* @keyframes pulse {
-  0% { transform: rotate(-45deg) scale(1); }
-  50% { transform: rotate(-45deg) scale(1.15); }
-  100% { transform: rotate(-45deg) scale(1); }
-} */
+
 
 #musicBtn.playing {
   animation: pulse 1s infinite;
 }
-
+/*  */
 
 body {
   cursor: none; /* hide default cursor */
@@ -302,5 +302,4 @@ body {
     max-width: 100%;
     height: auto;
   }
-
   }
