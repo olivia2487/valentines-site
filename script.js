@@ -90,48 +90,48 @@ const openWhenMessages = [
 ];
 
 // Set up click event for each Open When card
-document.querySelectorAll(".open-when-card").forEach(card => {
+ddocument.querySelectorAll(".open-when-card").forEach(card => {
+  const contentDiv = card.querySelector(".open-when-content");
+  contentDiv.style.opacity = 0;
+
   card.addEventListener("click", () => {
     const index = card.getAttribute("data-index");
-    const contentDiv = card.querySelector(".open-when-content");
-    
-    // If already visible, hide it
+
+    // Hide if already visible
     if (contentDiv.style.opacity === "1") {
       contentDiv.style.opacity = 0;
-      setTimeout(() => contentDiv.innerHTML = "", 300);
+      setTimeout(() => (contentDiv.innerHTML = ""), 300);
       return;
     }
 
-    // Show message and image
+    // Show message + image
     const data = openWhenMessages[index];
     let html = `<p>${data.message}</p>`;
     if (data.image) {
       html += `<img src="${data.image}" alt="Open When image" class="memory hover-effect" width="250">`;
     }
-    contentDiv.innerHTML = html;
 
-    // Fade in
+    contentDiv.innerHTML = html;
     contentDiv.style.transition = "opacity 0.5s ease";
-    setTimeout(() => contentDiv.style.opacity = 1, 50);
+
+    requestAnimationFrame(() => {
+      contentDiv.style.opacity = 1;
+    });
   });
 });
-const bgMusic = document.getElementById("bgMusic");
+
+/* 🎵 Music Play / Pause */
 const musicBtn = document.getElementById("musicBtn");
-const musicText = musicBtn.querySelector(".heart-label");
-
-
+const bgMusic = document.getElementById("bgMusic");
 let isPlaying = false;
 
 musicBtn.addEventListener("click", () => {
-  if (isPlaying) {
-    bgMusic.pause();
-    isPlaying = false;
-    musicBtn.classList.remove("playing");
-  } else {
+  if (!isPlaying) {
     bgMusic.play();
-    isPlaying = true;
     musicBtn.classList.add("playing");
+  } else {
+    bgMusic.pause();
+    musicBtn.classList.remove("playing");
   }
+  isPlaying = !isPlaying;
 });
-
-

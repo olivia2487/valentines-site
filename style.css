@@ -200,6 +200,9 @@ footer {
   font-size: 1.5rem;
   color: var(--red);
 }
+.surprise.show {
+  display: block;
+}
 
 /* Floating hearts */
 .floating-heart {
