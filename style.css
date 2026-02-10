@@ -123,10 +123,9 @@ footer {
   height: 90px;
   background: var(--red);
   position: relative;
-  transform: rotate(-45deg);
   cursor: pointer;
   margin: 30px auto;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transform: rotate(-45deg);
 }
 .heart-btn::before,
 .heart-btn::after {
@@ -144,22 +143,6 @@ footer {
 .heart-btn::after {
   left: 50px;
   top: 0;
-}
-.heart-btn:hover {
-  transform: rotate(-45deg) scale(1.1);
-  box-shadow: 0 0 15px var(--gold);
-}
-.heart-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  color: white;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 1px;
-  pointer-events: none;
-  text-transform: uppercase;
 }
 
 
@@ -233,6 +216,8 @@ footer {
 #musicBtn.playing {
   animation: pulse 1s infinite;
 }
+
+
 body {
   cursor: none; /* hide default cursor */
 }
@@ -264,10 +249,6 @@ body {
   .heart-btn {
     width: 120px;
     height: 110px;
-  }
-
-  .heart-text {
-    font-size: 16px;
   }
 
   .card {
@@ -321,8 +302,4 @@ body {
     max-width: 100%;
     height: auto;
   }
-
-  .heart-btn {
-    transform: scale(1.1);
   }
-}
