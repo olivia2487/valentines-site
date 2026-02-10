@@ -207,11 +207,11 @@ footer {
   display: block;
   margin: 10px auto;
 }
-@keyframes pulse {
+/* @keyframes pulse {
   0% { transform: rotate(-45deg) scale(1); }
   50% { transform: rotate(-45deg) scale(1.15); }
   100% { transform: rotate(-45deg) scale(1); }
-}
+} */
 
 #musicBtn.playing {
   animation: pulse 1s infinite;
@@ -302,4 +302,5 @@ body {
     max-width: 100%;
     height: auto;
   }
+
   }
