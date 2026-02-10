@@ -2,7 +2,7 @@
   --pink: #ffc0cb;
   --red: #ff4d6d;
   --pastel: #ffe4e1;
-  --pink: #e95186;
+  --pink1: #e95186;
 }
 
 * {
@@ -149,6 +149,19 @@ footer {
   transform: rotate(-45deg) scale(1.1);
   box-shadow: 0 0 15px var(--gold);
 }
+.heart-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
 
 /* Surprise content */
 .surprise {
@@ -219,4 +232,97 @@ footer {
 
 #musicBtn.playing {
   animation: pulse 1s infinite;
+}
+body {
+  cursor: none; /* hide default cursor */
+}
+
+.heart-cursor {
+  position: fixed;
+  font-size: 24px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease;
+  z-index: 9999;
+
+  text-shadow:
+    0 0 6px rgba(255, 77, 109, 0.9),
+    0 0 12px rgba(255, 182, 193, 0.8),
+    0 0 18px rgba(255, 105, 180, 0.6);
+}
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+
+  .heart-cursor {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .heart-btn {
+    width: 120px;
+    height: 110px;
+  }
+
+  .heart-text {
+    font-size: 16px;
+  }
+
+  .card {
+    max-width: 90%;
+  }
+}
+.music-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.music-hint {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #d45a7c;
+  font-family: 'Inter', sans-serif;
+  animation: pulseText 2s infinite;
+  text-align: center;
+}
+
+/* Soft pulsing hint */
+@keyframes pulseText {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+/* Mobile optimization */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .card {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .heart-btn {
+    transform: scale(1.1);
+  }
 }

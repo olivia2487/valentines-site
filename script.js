@@ -46,6 +46,13 @@ document.addEventListener("touchmove", e => {
   spawnHeart(touch.pageX, touch.pageY);
 });
 
+document.addEventListener("touchstart", e => {
+  const touch = e.touches[0];
+  if (!touch) return;
+
+  spawnHeart(touch.pageX, touch.pageY);
+});
+
 // Shared heart function 
 function spawnHeart(x, y) {
   const heart = document.createElement("div");
@@ -77,7 +84,7 @@ const openWhenMessages = [
     image: "images/couch.jpeg"
   },
   {
-    message: "❤️ Remember: You’re my favorite person, always!",
+    message: "❤️ Remember: You’re my favorite person, my big silly bear!",
     image: "images/christmas_bw.jpeg"
   }
 ];
@@ -110,8 +117,9 @@ document.querySelectorAll(".open-when-card").forEach(card => {
 });
 const bgMusic = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
+const musicText = musicBtn.querySelector(".heart-label");
 
-// Start paused by default
+
 let isPlaying = false;
 
 musicBtn.addEventListener("click", () => {
@@ -125,4 +133,5 @@ musicBtn.addEventListener("click", () => {
     musicBtn.classList.add("playing");
   }
 });
+
 

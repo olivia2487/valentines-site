@@ -8,16 +8,25 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
  <!-- Hidden audio file -->
+  <div class="heart-cursor">💗</div>
 <audio id="bgMusic" src="youandme.mp3" loop></audio>
+
 
 <!-- Heart-shaped play/pause button -->
 <br>
 <br>
 <br>
-<div id="musicBtn" class="heart-btn"></div>
+<div class="music-wrapper">
+  <div id="musicBtn" class="heart-btn">
+  </div>
+  <p class="music-hint">Tap the heart to play our song 🎶</p>
+</div>
+
+
 <br>
 
   <!-- Hero -->
@@ -30,7 +39,7 @@
   <section class="section fade-in">
     <h2>Why I Love You</h2>
     <div class="cards">
-      <div class="card hover-effect">You make me feel safe.</div>
+      <div class="card hover-effect">You make me feel safe and protected.</div>
       <div class="card hover-effect">You show me what it's like to actually be loved.</div>
       <div class="card hover-effect">You make me look forward to every day.</div>
     </div>
@@ -104,5 +113,14 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+  const heart = document.querySelector(".heart-cursor");
+
+  document.addEventListener("mousemove", (e) => {
+    heart.style.left = e.clientX + "px";
+    heart.style.top = e.clientY + "px";
+  });
+</script>
+
 </body>
 </html>
