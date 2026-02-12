@@ -70,8 +70,14 @@ function spawnHeart(x, y) {
 /* Toggle surprise box */
 function toggleSurprise() {
   const surprise = document.getElementById("surpriseContent");
-  surprise.style.display = surprise.style.display === "block" ? "none" : "block";
+  const heart = document.querySelector(".surprise-heart");
+
+  const isOpen = surprise.style.display === "block";
+
+  surprise.style.display = isOpen ? "none" : "block";
+  heart.classList.toggle("active", !isOpen);
 }
+
 // Messages for each Open When card
 const openWhenMessages = [
   {

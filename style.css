@@ -117,55 +117,61 @@ footer {
   background-size: cover;
 }
 
-/* Heart-shaped button */
+/* Base Heart Button Container */
 .heart-btn {
-  width: 100px;
-  height: 90px;
+  width: 110px;
+  height: 100px;
   position: relative;
   cursor: pointer;
   margin: 40px auto;
-  transform: rotate(-45deg);
+}
+
+/* Inner Heart Shape */
+.heart-shape {
+  width: 100%;
+  height: 100%;
+  position: relative;
   background: var(--red);
+  transform: rotate(-45deg);
 
   /* Unified glow */
   filter: drop-shadow(0 0 10px rgba(255, 77, 109, 0.8))
-          drop-shadow(0 0 20px rgba(255, 105, 180, 0.6))
-          drop-shadow(0 0 35px rgba(255, 182, 193, 0.5));
+          drop-shadow(0 0 20px rgba(255, 105, 180, 0.6));
 }
 
-
-.heart-btn::before,
-.heart-btn::after {
+/* Top circles */
+.heart-shape::before,
+.heart-shape::after {
   content: "";
-  width: 100px;
-  height: 90px;
+  position: absolute;
+  width: 110px;
+  height: 100px;
   background: var(--red);
   border-radius: 50%;
-  position: absolute;
-
 }
 
-.heart-btn::before {
-  top: -50px;
+.heart-shape::before {
+  top: -55px;
   left: 0;
 }
 
-.heart-btn::after {
-  left: 50px;
+.heart-shape::after {
+  left: 55px;
   top: 0;
 }
 
+
 @keyframes pulse {
-  0% {
-    transform: rotate(-45deg) scale(1);
-  }
-  50% {
-    transform: rotate(-45deg) scale(1.12);
-  }
-  100% {
-    transform: rotate(-45deg) scale(1);
-  }
+  0% { transform: rotate(-45deg) scale(1); }
+  50% { transform: rotate(-45deg) scale(1.12); }
+  100% { transform: rotate(-45deg) scale(1); }
 }
+
+#musicBtn.playing .heart-shape {
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+
 
 .music-wrapper {
   padding-top: 40px;
@@ -177,6 +183,15 @@ footer {
   margin-top: 20px;
   font-size: 1.5rem;
   color: var(--red);
+}
+@keyframes gentleBounce {
+  0% { transform: rotate(-45deg) translateY(0); }
+  50% { transform: rotate(-45deg) translateY(-6px); }
+  100% { transform: rotate(-45deg) translateY(0); }
+}
+
+.surprise-heart .heart-shape {
+  animation: gentleBounceto 2s infinite ease-in-out;
 }
 
 /* Floating hearts */
@@ -231,19 +246,6 @@ footer {
   display: block;
   margin: 10px auto;
 }
-
-
-#musicBtn.playing {
-  animation: pulse 1.2s infinite ease-in-out;
-  box-shadow:
-    0 0 15px rgba(255, 77, 109, 0.9),
-    0 0 30px rgba(255, 105, 180, 0.8),
-    0 0 50px rgba(255, 182, 193, 0.7);
-}
-
-
-/*  */
-
 body {
   cursor: none; /* hide default cursor */
 }
@@ -329,3 +331,7 @@ body {
     height: auto;
   }
   }
+  .surprise-heart.active .heart-shape {
+  filter: drop-shadow(0 0 15px rgba(255, 77, 109, 1))
+          drop-shadow(0 0 30px rgba(255, 105, 180, 0.9));
+}
