@@ -120,7 +120,7 @@ footer {
 /* Base Heart Button Container */
 .heart-btn {
   width: 110px;
-  height: 100px;
+  height: 110px;
   position: relative;
   cursor: pointer;
   margin: 40px auto;
@@ -145,7 +145,7 @@ footer {
   content: "";
   position: absolute;
   width: 110px;
-  height: 100px;
+  height: 110px;
   background: var(--red);
   border-radius: 50%;
 }
