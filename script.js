@@ -139,4 +139,14 @@ musicBtn.addEventListener("click", () => {
     musicBtn.classList.add("playing");
   }
 });
+const clickables = document.querySelectorAll("button, a, .heart-btn");
 
+clickables.forEach(el => {
+  el.addEventListener("mouseenter", () => {
+    cursor.style.transform = "rotate(-45deg) scale(1.4)";
+  });
+
+  el.addEventListener("mouseleave", () => {
+    cursor.style.transform = "rotate(-45deg) scale(1)";
+  });
+});
