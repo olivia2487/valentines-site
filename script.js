@@ -91,7 +91,7 @@ const openWhenMessages = [
   },
   {
     message: "❤️ Remember: You’re my favorite person, my big silly bear!",
-    image: "images/swing1.jpeg"
+    image: "images/swing1.JPEG"
   }
 ];
 
