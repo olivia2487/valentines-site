@@ -83,7 +83,7 @@ const openWhenMessages = [
   {
     message: "💌 I’m thinking of you right now 😘",
     
-    image: "images/mason_heidi_me.jpeg",
+    image: "images/severus.jpeg",
   },
   {
     message: "😌 Take a deep breath… everything will be okay 💛",
@@ -91,7 +91,7 @@ const openWhenMessages = [
   },
   {
     message: "❤️ Remember: You’re my favorite person, my big silly bear!",
-    image: "images/christmas_bw.jpeg"
+    image: "images/swing.jpeg"
   }
 ];
 
